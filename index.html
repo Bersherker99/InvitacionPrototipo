@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mis 15 - Nayeli Gutiérrez</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- CAPAS DECORATIVAS -->
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-glow glow-3"></div>
+
+  <div class="sparkle-layer" aria-hidden="true">
+    <span class="sparkle s1"></span>
+    <span class="sparkle s2"></span>
+    <span class="sparkle s3"></span>
+    <span class="sparkle s4"></span>
+    <span class="sparkle s5"></span>
+    <span class="sparkle s6"></span>
+    <span class="sparkle s7"></span>
+    <span class="sparkle s8"></span>
+  </div>
+
+  <div class="floating-butterflies" aria-hidden="true">
+    <span class="butterfly butterfly-1">🦋</span>
+    <span class="butterfly butterfly-2">🦋</span>
+    <span class="butterfly butterfly-3">🦋</span>
+    <span class="butterfly butterfly-4">🦋</span>
+    <span class="butterfly butterfly-5">🦋</span>
+  </div>
+  <div class="petals-layer" aria-hidden="true">
+    <span class="petal p1"></span>
+    <span class="petal p2"></span>
+    <span class="petal p3"></span>
+    <span class="petal p4"></span>
+    <span class="petal p5"></span>
+    <span class="petal p6"></span>
+    <span class="petal p7"></span>
+    <span class="petal p8"></span>
+  </div>
+
+  <!-- SOBRE -->
+  <section id="pantalla-sobre">
+    <div class="sobre-card">
+      <div class="shine-overlay"></div>
+
+      <p class="mini-tag">Invitación especial</p>
+      <h1 class="nombre-portada" id="nombrePortada">Nayeli Gutiérrez</h1>
+      <p class="sub-portada">Mis quince años</p>
+
+      <div class="sobre-wrap">
+        <img src="sobre.png" alt="Sobre decorativo" class="sobre-img" />
+        <img src="lazo.png" alt="Lazo decorativo" class="lazo-img" />
+        <button id="btnAbrir" class="btn-abrir">Abrir invitación</button>
+      </div>
+
+      <div class="pase-card">
+        <p class="pase-label">Pase reservado para</p>
+        <h2 class="nombre-invitado" id="nombreInvitado">Invitado Especial</h2>
+        <p class="numero-personas" id="numeroPersonas">1 persona</p>
+      </div>
+    </div>
+  </section>
+
+  <main id="contenido">
+    <!-- HERO PRINCIPAL -->
+    <section class="hero-section parallax-section reveal fade-up">
+      <div class="premium-card hero-card">
+        <img src="flores-esquina.png" alt="" class="flor flor-top-left">
+        <img src="flores-esquina.png" alt="" class="flor flor-bottom-right mirrored">
+        <div class="butterfly-svg butterfly-card butterfly-card-a">🦋</div>
+        <div class="butterfly-svg butterfly-card butterfly-card-b">🦋</div>
+
+        <div class="titulo-principal stagger-group">
+          <span class="stagger-item mis">Mis</span>
+          <span class="stagger-item quince-num">15</span>
+          <span class="stagger-item quince-text">Quince</span>
+        </div>
+
+        <div class="marco-arco reveal float-in delay-1">
+          <img src="foto.png" alt="Foto de Nayeli Gutiérrez">
+        </div>
+
+        <h2 class="nombre-central reveal fade-up delay-2" id="nombrePrincipal">Nayeli Gutiérrez</h2>
+
+        <p class="texto-bienvenida reveal fade-up delay-3" id="textoBienvenida">
+          Con la bendición de Dios y el amor de mi familia, queremos invitarte a celebrar este día tan especial.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTADOR -->
+    <section class="section-space parallax-section reveal fade-left">
+      <div class="premium-band">
+        <img src="flores-esquina.png" alt="" class="flores-banda flores-banda-left">
+        <img src="flores-esquina.png" alt="" class="flores-banda flores-banda-right mirrored">
+
+        <h3 class="titulo-vino reveal fade-up">Faltan</h3>
+
+        <div class="contador-grid stagger-group">
+          <div class="contador-item stagger-item counter-box">
+            <span id="dias">00</span>
+            <small>Días</small>
+          </div>
+          <div class="contador-item stagger-item counter-box">
+            <span id="horas">00</span>
+            <small>Horas</small>
+          </div>
+          <div class="contador-item stagger-item counter-box">
+            <span id="minutos">00</span>
+            <small>Min</small>
+          </div>
+          <div class="contador-item stagger-item counter-box">
+            <span id="segundos">00</span>
+            <small>Seg</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FECHA EXACTA -->
+    <section class="section-space parallax-section reveal zoom-soft">
+      <div class="premium-card tarjeta-fecha">
+        <img src="flores-esquina.png" alt="" class="flor flor-top-left">
+        <div class="butterfly-svg butterfly-card butterfly-card-c">🦋</div>
+
+        <h3 class="titulo-script reveal fade-up">Mi cumpleaños</h3>
+
+        <div class="fecha-box stagger-group">
+          <p class="mes stagger-item" id="mesEvento">ABRIL</p>
+
+          <div class="fecha-linea">
+            <span class="lado-fecha stagger-item" id="diaSemana">SÁBADO</span>
+            <span class="numero-fecha stagger-item" id="diaNumero">11</span>
+          </div>
+        </div>
+
+        <p class="frase-corta reveal fade-up delay-2" id="fraseFecha">
+          “Este día quedará para siempre en mi corazón”
+        </p>
+      </div>
+    </section>
+
+    <!-- MISA -->
+    <section class="section-space parallax-section reveal fade-right">
+      <div class="premium-card">
+        <img src="flores-esquina.png" alt="" class="flor flor-bottom-left">
+        <h3 class="titulo-script reveal fade-up">Misa</h3>
+        <div class="divider reveal fade-up delay-1"></div>
+
+        <div class="evento-info stagger-group">
+          <p class="hora-evento stagger-item" id="horaMisa">15:00 hrs</p>
+          <p class="lugar-evento stagger-item" id="lugarMisa">Iglesia de Atocha</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECEPCIÓN -->
+    <section class="section-space parallax-section reveal fade-left">
+      <div class="premium-card">
+        <img src="flores-esquina.png" alt="" class="flor flor-top-right mirrored">
+        <div class="butterfly-svg butterfly-card butterfly-card-d">🦋</div>
+
+        <h3 class="titulo-script reveal fade-up">Recepción</h3>
+        <div class="divider reveal fade-up delay-1"></div>
+
+        <div class="evento-info stagger-group">
+          <p class="hora-evento stagger-item" id="horaLugar">16:00 hrs</p>
+          <p class="lugar-evento stagger-item" id="nombreLugar">Quinta / Salón de eventos</p>
+        </div>
+
+        <a id="btnMapa" href="#" target="_blank" class="btn-vino reveal fade-up delay-3">
+          Ver mapa
+        </a>
+      </div>
+    </section>
+
+    <!-- ITINERARIO -->
+    <section class="section-space parallax-section reveal float-in">
+      <div class="premium-band premium-band-itinerario">
+        <h3 class="titulo-vino reveal fade-up">Itinerario</h3>
+
+        <div class="timeline">
+          <div class="timeline-item reveal fade-left delay-1">
+            <div class="timeline-time">16:00 hrs</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-text">Recepción de invitados</div>
+          </div>
+
+          <div class="timeline-item reveal fade-right delay-1">
+            <div class="timeline-time">17:00 hrs</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-text">Entrada de la quinceañera</div>
+          </div>
+
+          <div class="timeline-item reveal fade-left delay-1">
+            <div class="timeline-time">18:00 hrs</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-text">Vals y brindis</div>
+          </div>
+
+          <div class="timeline-item reveal fade-right delay-1">
+            <div class="timeline-time">19:30 hrs</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-text">Cena</div>
+          </div>
+
+          <div class="timeline-item reveal fade-left delay-1">
+            <div class="timeline-time">20:30 hrs</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-text">Inicio del baile</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FOTO INTERMEDIA -->
+    <section class="section-space parallax-section reveal zoom-soft">
+      <div class="photo-full">
+        <img src="foto2.png" alt="Nayeli Gutiérrez">
+        <div class="photo-overlay"></div>
+        <div class="photo-caption reveal fade-up">
+          <h3>Nayeli Gutiérrez</h3>
+          <p>Una noche para recordar</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓDIGO DE VESTIMENTA -->
+    <section class="section-space parallax-section reveal fade-right">
+      <div class="premium-card">
+        <img src="flores-esquina.png" alt="" class="flor flor-top-left">
+        <h3 class="titulo-script reveal fade-up">Código de vestimenta</h3>
+
+        <p class="dress-title reveal fade-up delay-1" id="dressCode">Formal elegante</p>
+        <p class="dress-texto reveal fade-up delay-2">
+          Reservamos el color rojo vino para la quinceañera.
+        </p>
+
+        <div class="dress-palette reveal fade-up delay-3">
+          <span class="palette-dot vino"></span>
+          <span class="palette-dot nude"></span>
+          <span class="palette-dot gold"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRASE -->
+    <section class="section-space parallax-section reveal zoom-soft">
+      <div class="premium-card frase-card">
+        <div class="butterfly-svg butterfly-card butterfly-card-e">🦋</div>
+        <h3 class="titulo-script reveal fade-up">Mis 15 años</h3>
+
+        <p class="frase-larga reveal fade-up delay-2" id="fraseQuince">
+          “Hoy celebro no solo un cumpleaños, sino el comienzo de una nueva etapa llena de sueños, ilusiones y momentos inolvidables.”
+        </p>
+      </div>
+    </section>
+
+    <!-- CONFIRMACIÓN -->
+    <section class="section-space parallax-section reveal fade-up">
+      <div class="premium-card confirm-card">
+        <img src="flores-esquina.png" alt="" class="flor flor-bottom-right mirrored">
+        <h3 class="titulo-script reveal fade-up">Confirmar asistencia</h3>
+
+        <p class="confirmacion-texto reveal fade-up delay-1">
+          Por favor, confirma tu asistencia para compartir este momento tan especial con nosotros.
+        </p>
+
+        <a id="btnConfirmar" href="#" target="_blank" class="btn-vino reveal fade-up delay-2">
+          Confirmar aquí
+        </a>
+
+        <p class="mensaje-final reveal fade-up delay-3">
+          ¡Esperamos verte y celebrar juntos!
+        </p>
+      </div>
+    </section>
+    <!-- FOTO FINAL -->
+<section class="section-space parallax-section reveal fade-up">
+  <div class="photo-final">
+    <img src="foto3.png" alt="Nayeli Gutiérrez">
+    <div class="final-overlay"></div>
+
+    <div class="final-text reveal fade-up delay-2">
+      <h2>Gracias por ser parte de este momento</h2>
+      <p>Te esperamos ❤️</p>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
