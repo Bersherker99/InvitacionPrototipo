@@ -4,18 +4,22 @@ const CONFIG = {
     "Con la bendición de Dios y el amor de mi familia, queremos invitarte a celebrar este día tan especial.",
   fechaEvento: "2026-04-11T14:45:00",
 
-  mesEvento: "ABRIL",
-  diaSemana: "SÁBADO",
+  mesEvento: "abril",
   diaNumero: "11",
   fraseFecha: "“Este día quedará para siempre en mi corazón”",
+
+  introFrase: "Hay momentos que se guardan para siempre en el corazón",
 
   tituloCeremonia: "Ceremonia religiosa",
   horaMisa: "14:45 hrs",
   lugarMisa: "Iglesia San José de Atocha",
+  direccionMisa: "Calles: Mentor Mera & Himno nacional",
+  linkMapaMisa: "https://maps.app.goo.gl/cSL7gBG3KUtMXvnN6?g_st=aw",
 
   horaLugar: "14:45 hrs",
   nombreLugar: "Quinta María Eliza",
-  linkMapa: "https://maps.google.com",
+  direccionLugar: "Calle: Destacamento Militar “Condor Mirador”",
+  linkMapa: "https://maps.app.goo.gl/HjR1zyMvgGSVjATq5",
 
   dressCode: "Formal elegante",
 
@@ -32,17 +36,22 @@ function cargarDatos() {
   $("nombrePrincipal").textContent = CONFIG.quinceanera;
   $("textoBienvenida").textContent = CONFIG.textoBienvenida;
 
-  $("mesEvento").textContent = CONFIG.mesEvento;
-  $("diaSemana").textContent = CONFIG.diaSemana;
-  $("diaNumero").textContent = CONFIG.diaNumero;
+  $("introNombre").textContent = CONFIG.quinceanera;
+  $("introFrase").textContent = CONFIG.introFrase;
+
+  $("diaNumeroSimple").textContent = CONFIG.diaNumero;
+  $("mesEventoSimple").textContent = CONFIG.mesEvento;
   $("fraseFecha").textContent = CONFIG.fraseFecha;
 
   $("tituloCeremonia").textContent = CONFIG.tituloCeremonia;
   $("horaMisa").textContent = CONFIG.horaMisa;
   $("lugarMisa").textContent = CONFIG.lugarMisa;
+  $("direccionMisa").textContent = CONFIG.direccionMisa;
+  $("btnMapaMisa").href = CONFIG.linkMapaMisa;
 
   $("horaLugar").textContent = CONFIG.horaLugar;
   $("nombreLugar").textContent = CONFIG.nombreLugar;
+  $("direccionLugar").textContent = CONFIG.direccionLugar;
   $("btnMapa").href = CONFIG.linkMapa;
 
   $("dressCode").textContent = CONFIG.dressCode;
@@ -61,6 +70,8 @@ function cargarInvitadoDesdeURL() {
   $("numeroPersonas").textContent =
     `${personas} ${Number(personas) === 1 ? "persona" : "personas"}`;
 
+  $("floatInvitado").textContent = nombre;
+
   const mensaje =
     `¡Hola! Confirmo mi asistencia a los 15 de ${CONFIG.quinceanera}. ` +
     `Somos ${nombre} (${personas} ${Number(personas) === 1 ? "persona" : "personas"}).`;
@@ -69,18 +80,65 @@ function cargarInvitadoDesdeURL() {
     `https://wa.me/${CONFIG.telefonoWhatsApp}?text=${encodeURIComponent(mensaje)}`;
 }
 
+function reproducirMusicaSiSePuede() {
+  const musica = $("musicaFondo");
+  const btnMusica = $("btnMusica");
+  if (!musica) return;
+
+  musica.play()
+    .then(() => btnMusica.classList.add("playing"))
+    .catch(() => {});
+}
+
+function activarMusica() {
+  const musica = $("musicaFondo");
+  const btnMusica = $("btnMusica");
+  if (!musica || !btnMusica) return;
+
+  btnMusica.addEventListener("click", async () => {
+    if (musica.paused) {
+      try {
+        await musica.play();
+        btnMusica.classList.add("playing");
+      } catch (error) {}
+    } else {
+      musica.pause();
+      btnMusica.classList.remove("playing");
+    }
+  });
+
+  document.addEventListener("click", async () => {
+    if (musica.paused) {
+      try {
+        await musica.play();
+        btnMusica.classList.add("playing");
+      } catch (error) {}
+    }
+  }, { once: true });
+}
+
+function cerrarIntro() {
+  const intro = $("introCinematic");
+  if (!intro || intro.classList.contains("hidden")) return;
+
+  intro.classList.add("hidden");
+  reproducirMusicaSiSePuede();
+}
+
+function iniciarIntroCinematic() {
+  const btnSaltar = $("btnSaltarIntro");
+  if (btnSaltar) {
+    btnSaltar.addEventListener("click", cerrarIntro);
+  }
+
+  setTimeout(cerrarIntro, 5200);
+}
+
 function abrirInvitacion() {
   const pantalla = $("pantalla-sobre");
   pantalla.classList.add("abriendo");
 
-  const musica = $("musicaFondo");
-  const btnMusica = $("btnMusica");
-
-  if (musica) {
-    musica.play()
-      .then(() => btnMusica.classList.add("playing"))
-      .catch(() => {});
-  }
+  reproducirMusicaSiSePuede();
 
   setTimeout(() => {
     pantalla.style.transform = "translateY(-110%)";
@@ -167,7 +225,7 @@ function activarPetalosInteractivos() {
     const intensidad = Math.min(scrollY * 0.02, 18);
 
     petalos.forEach((petalo, index) => {
-      const offset = ((index % 2 === 0) ? intensidad : -intensidad);
+      const offset = (index % 2 === 0) ? intensidad : -intensidad;
       petalo.style.marginLeft = `${offset}px`;
     });
   }
@@ -176,38 +234,13 @@ function activarPetalosInteractivos() {
   window.addEventListener("scroll", reaccionPetalos, { passive: true });
 }
 
-function activarMusica() {
-  const musica = $("musicaFondo");
-  const btnMusica = $("btnMusica");
-  if (!musica || !btnMusica) return;
-
-  btnMusica.addEventListener("click", async () => {
-    if (musica.paused) {
-      try {
-        await musica.play();
-        btnMusica.classList.add("playing");
-      } catch (error) {}
-    } else {
-      musica.pause();
-      btnMusica.classList.remove("playing");
-    }
-  });
-
-  document.addEventListener("click", async () => {
-    if (musica.paused) {
-      try {
-        await musica.play();
-        btnMusica.classList.add("playing");
-      } catch (error) {}
-    }
-  }, { once: true });
-}
-
 document.body.style.overflowY = "hidden";
+
 $("btnAbrir").addEventListener("click", abrirInvitacion);
 
 cargarDatos();
 cargarInvitadoDesdeURL();
+iniciarIntroCinematic();
 iniciarContador();
 activarAnimacionesScroll();
 activarScrollCinematic();

@@ -12,7 +12,24 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- ESCARCHA PREMIUM -->
+  <!-- INTRO CINEMATIC -->
+  <section id="introCinematic">
+    <div class="intro-particles"></div>
+    <div class="intro-content">
+      <p class="intro-frase" id="introFrase">
+        Hay momentos que se guardan para siempre en el corazón
+      </p>
+
+      <div class="intro-title-wrap">
+        <h1 class="intro-nombre" id="introNombre">Nayeli Gutiérrez</h1>
+        <p class="intro-sub">Mis 15 años</p>
+      </div>
+
+      <button id="btnSaltarIntro" class="btn-intro-secondary">Saltar intro</button>
+    </div>
+  </section>
+
+  <!-- ESCARCHA -->
   <div class="glitter-overlay" aria-hidden="true"></div>
 
   <!-- AUDIO -->
@@ -23,6 +40,9 @@
   <button id="btnMusica" class="music-toggle" aria-label="Activar o pausar música">
     ♪ Música
   </button>
+
+  <!-- IDENTIFICADOR INVITADO -->
+  <div class="invitado-float" id="floatInvitado">Invitado Especial</div>
 
   <!-- CAPAS DECORATIVAS -->
   <div class="bg-glow glow-1"></div>
@@ -85,7 +105,7 @@
 
   <main id="contenido">
     <!-- HERO PRINCIPAL -->
-    <section class="hero-section parallax-section reveal fade-up">
+    <section class="hero-section parallax-section reveal fade-up decor-top-left decor-bottom-right">
       <div class="premium-card hero-card">
         <img src="flores-esquina.png" alt="" class="flor flor-top-left">
         <img src="flores-esquina.png" alt="" class="flor flor-bottom-right mirrored">
@@ -111,7 +131,7 @@
     </section>
 
     <!-- CONTADOR -->
-    <section class="section-space parallax-section reveal fade-left">
+    <section class="section-space parallax-section reveal fade-left decor-border-soft">
       <div class="premium-band">
         <img src="flores-esquina.png" alt="" class="flores-banda flores-banda-left">
         <img src="flores-esquina.png" alt="" class="flores-banda flores-banda-right mirrored">
@@ -140,20 +160,17 @@
     </section>
 
     <!-- FECHA EXACTA -->
-    <section class="section-space parallax-section reveal zoom-soft">
-      <div class="premium-card tarjeta-fecha">
+    <section class="section-space parallax-section reveal zoom-soft decor-top-right">
+      <div class="premium-card tarjeta-fecha fecha-elegante">
         <img src="flores-esquina.png" alt="" class="flor flor-top-left">
         <div class="butterfly-svg butterfly-card butterfly-card-c">🦋</div>
 
         <h3 class="titulo-script reveal fade-up">Mi cumpleaños</h3>
 
-        <div class="fecha-box stagger-group">
-          <p class="mes stagger-item" id="mesEvento">ABRIL</p>
-
-          <div class="fecha-linea">
-            <span class="lado-fecha stagger-item" id="diaSemana">SÁBADO</span>
-            <span class="numero-fecha stagger-item" id="diaNumero">11</span>
-          </div>
+        <div class="fecha-simple reveal fade-up delay-1">
+          <span id="diaNumeroSimple">11</span>
+          <span class="de-fecha">de</span>
+          <span id="mesEventoSimple">abril</span>
         </div>
 
         <p class="frase-corta reveal fade-up delay-2" id="fraseFecha">
@@ -163,41 +180,59 @@
     </section>
 
     <!-- CEREMONIA -->
-    <section class="section-space parallax-section reveal fade-right">
-      <div class="premium-card">
+    <section class="section-space parallax-section reveal fade-right decor-top-left decor-border-soft">
+      <div class="premium-card premium-card-place">
         <img src="flores-esquina.png" alt="" class="flor flor-bottom-left">
         <h3 class="titulo-script reveal fade-up" id="tituloCeremonia">Ceremonia religiosa</h3>
         <div class="divider reveal fade-up delay-1"></div>
 
+        <div class="evento-img reveal zoom-soft delay-1">
+          <img src="iglesia.jpg" alt="Iglesia San José de Atocha">
+        </div>
+
         <div class="evento-info stagger-group">
           <p class="hora-evento stagger-item" id="horaMisa">14:45 hrs</p>
           <p class="lugar-evento stagger-item" id="lugarMisa">Iglesia San José de Atocha</p>
+          <p class="direccion-evento stagger-item" id="direccionMisa">
+            Calles: Mentor Mera &amp; Himno nacional
+          </p>
         </div>
+
+        <a id="btnMapaMisa" href="https://maps.app.goo.gl/cSL7gBG3KUtMXvnN6?g_st=aw" target="_blank" class="btn-vino reveal fade-up delay-3">
+          Ver ubicación
+        </a>
       </div>
     </section>
 
     <!-- RECEPCIÓN -->
-    <section class="section-space parallax-section reveal fade-left">
-      <div class="premium-card">
+    <section class="section-space parallax-section reveal fade-left decor-bottom-right decor-top-right">
+      <div class="premium-card premium-card-place">
         <img src="flores-esquina.png" alt="" class="flor flor-top-right mirrored">
         <div class="butterfly-svg butterfly-card butterfly-card-d">🦋</div>
 
         <h3 class="titulo-script reveal fade-up">Recepción</h3>
         <div class="divider reveal fade-up delay-1"></div>
 
+        <div class="evento-img reveal zoom-soft delay-1">
+          <img src="quinta.jpg" alt="Quinta María Eliza">
+        </div>
+
         <div class="evento-info stagger-group">
           <p class="hora-evento stagger-item" id="horaLugar">14:45 hrs</p>
           <p class="lugar-evento stagger-item" id="nombreLugar">Quinta María Eliza</p>
+          <p class="direccion-evento stagger-item" id="direccionLugar">
+            Calle: Destacamento Militar “Condor Mirador”
+          </p>
         </div>
 
-        <a id="btnMapa" href="#" target="_blank" class="btn-vino reveal fade-up delay-3">
-          Ver mapa
+        <a id="btnMapa" href="https://maps.app.goo.gl/HjR1zyMvgGSVjATq5" target="_blank" class="btn-vino reveal fade-up delay-3">
+          Ver ubicación
         </a>
       </div>
     </section>
 
     <!-- ITINERARIO -->
-    <section class="section-space parallax-section reveal float-in">
+    <section class="section-space parallax-section reveal float-in decor-border-soft">
       <div class="premium-band premium-band-itinerario">
         <h3 class="titulo-vino reveal fade-up">Itinerario</h3>
 
@@ -236,7 +271,7 @@
     </section>
 
     <!-- FOTO INTERMEDIA -->
-    <section class="section-space parallax-section reveal zoom-soft">
+    <section class="section-space parallax-section reveal zoom-soft decor-top-left">
       <div class="photo-full">
         <img src="foto2.png" alt="Nayeli Gutiérrez">
         <div class="photo-overlay"></div>
@@ -248,7 +283,7 @@
     </section>
 
     <!-- CÓDIGO DE VESTIMENTA -->
-    <section class="section-space parallax-section reveal fade-right">
+    <section class="section-space parallax-section reveal fade-right decor-bottom-right">
       <div class="premium-card">
         <img src="flores-esquina.png" alt="" class="flor flor-top-left">
         <h3 class="titulo-script reveal fade-up">Código de vestimenta</h3>
@@ -267,7 +302,7 @@
     </section>
 
     <!-- FRASE -->
-    <section class="section-space parallax-section reveal zoom-soft">
+    <section class="section-space parallax-section reveal zoom-soft decor-top-right decor-border-soft">
       <div class="premium-card frase-card">
         <div class="butterfly-svg butterfly-card butterfly-card-e">🦋</div>
         <h3 class="titulo-script reveal fade-up">Mis 15 años</h3>
@@ -279,7 +314,7 @@
     </section>
 
     <!-- CONFIRMACIÓN -->
-    <section class="section-space parallax-section reveal fade-up">
+    <section class="section-space parallax-section reveal fade-up decor-bottom-right decor-top-left">
       <div class="premium-card confirm-card">
         <img src="flores-esquina.png" alt="" class="flor flor-bottom-right mirrored">
         <h3 class="titulo-script reveal fade-up">Confirmar asistencia</h3>
@@ -299,7 +334,7 @@
     </section>
 
     <!-- FOTO FINAL -->
-    <section class="section-space parallax-section reveal fade-up">
+    <section class="section-space parallax-section reveal fade-up decor-border-soft">
       <div class="photo-final">
         <img src="foto3.png" alt="Nayeli Gutiérrez">
         <div class="final-overlay"></div>
