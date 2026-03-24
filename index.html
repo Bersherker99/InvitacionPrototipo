@@ -12,6 +12,18 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- ESCARCHA PREMIUM -->
+  <div class="glitter-overlay" aria-hidden="true"></div>
+
+  <!-- AUDIO -->
+  <audio id="musicaFondo" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="btnMusica" class="music-toggle" aria-label="Activar o pausar música">
+    ♪ Música
+  </button>
+
   <!-- CAPAS DECORATIVAS -->
   <div class="bg-glow glow-1"></div>
   <div class="bg-glow glow-2"></div>
@@ -35,6 +47,7 @@
     <span class="butterfly butterfly-4">🦋</span>
     <span class="butterfly butterfly-5">🦋</span>
   </div>
+
   <div class="petals-layer" aria-hidden="true">
     <span class="petal p1"></span>
     <span class="petal p2"></span>
@@ -58,12 +71,13 @@
       <div class="sobre-wrap">
         <img src="sobre.png" alt="Sobre decorativo" class="sobre-img" />
         <img src="lazo.png" alt="Lazo decorativo" class="lazo-img" />
+        <div class="sobre-flap"></div>
         <button id="btnAbrir" class="btn-abrir">Abrir invitación</button>
       </div>
 
       <div class="pase-card">
         <p class="pase-label">Pase reservado para</p>
-        <h2 class="nombre-invitado" id="nombreInvitado">Invitado Especial</h2>
+        <h2 class="nombre-invitado glow-name" id="nombreInvitado">Invitado Especial</h2>
         <p class="numero-personas" id="numeroPersonas">1 persona</p>
       </div>
     </div>
@@ -81,7 +95,7 @@
         <div class="titulo-principal stagger-group">
           <span class="stagger-item mis">Mis</span>
           <span class="stagger-item quince-num">15</span>
-          <span class="stagger-item quince-text">Quince</span>
+          <span class="stagger-item quince-text">Años</span>
         </div>
 
         <div class="marco-arco reveal float-in delay-1">
@@ -148,16 +162,16 @@
       </div>
     </section>
 
-    <!-- MISA -->
+    <!-- CEREMONIA -->
     <section class="section-space parallax-section reveal fade-right">
       <div class="premium-card">
         <img src="flores-esquina.png" alt="" class="flor flor-bottom-left">
-        <h3 class="titulo-script reveal fade-up">Misa</h3>
+        <h3 class="titulo-script reveal fade-up" id="tituloCeremonia">Ceremonia religiosa</h3>
         <div class="divider reveal fade-up delay-1"></div>
 
         <div class="evento-info stagger-group">
-          <p class="hora-evento stagger-item" id="horaMisa">15:00 hrs</p>
-          <p class="lugar-evento stagger-item" id="lugarMisa">Iglesia de Atocha</p>
+          <p class="hora-evento stagger-item" id="horaMisa">14:45 hrs</p>
+          <p class="lugar-evento stagger-item" id="lugarMisa">Iglesia San José de Atocha</p>
         </div>
       </div>
     </section>
@@ -172,8 +186,8 @@
         <div class="divider reveal fade-up delay-1"></div>
 
         <div class="evento-info stagger-group">
-          <p class="hora-evento stagger-item" id="horaLugar">16:00 hrs</p>
-          <p class="lugar-evento stagger-item" id="nombreLugar">Quinta / Salón de eventos</p>
+          <p class="hora-evento stagger-item" id="horaLugar">14:45 hrs</p>
+          <p class="lugar-evento stagger-item" id="nombreLugar">Quinta María Eliza</p>
         </div>
 
         <a id="btnMapa" href="#" target="_blank" class="btn-vino reveal fade-up delay-3">
@@ -189,37 +203,38 @@
 
         <div class="timeline">
           <div class="timeline-item reveal fade-left delay-1">
-            <div class="timeline-time">16:00 hrs</div>
+            <div class="timeline-time">14:45 hrs</div>
             <div class="timeline-dot"></div>
             <div class="timeline-text">Recepción de invitados</div>
           </div>
 
           <div class="timeline-item reveal fade-right delay-1">
-            <div class="timeline-time">17:00 hrs</div>
+            <div class="timeline-time">16:30 hrs</div>
             <div class="timeline-dot"></div>
             <div class="timeline-text">Entrada de la quinceañera</div>
           </div>
 
           <div class="timeline-item reveal fade-left delay-1">
-            <div class="timeline-time">18:00 hrs</div>
+            <div class="timeline-time">17:00 hrs</div>
             <div class="timeline-dot"></div>
             <div class="timeline-text">Vals y brindis</div>
           </div>
 
           <div class="timeline-item reveal fade-right delay-1">
-            <div class="timeline-time">19:30 hrs</div>
+            <div class="timeline-time">20:00 hrs</div>
             <div class="timeline-dot"></div>
             <div class="timeline-text">Cena</div>
           </div>
 
           <div class="timeline-item reveal fade-left delay-1">
-            <div class="timeline-time">20:30 hrs</div>
+            <div class="timeline-time">20:45 hrs</div>
             <div class="timeline-dot"></div>
             <div class="timeline-text">Inicio del baile</div>
           </div>
         </div>
       </div>
     </section>
+
     <!-- FOTO INTERMEDIA -->
     <section class="section-space parallax-section reveal zoom-soft">
       <div class="photo-full">
@@ -240,7 +255,7 @@
 
         <p class="dress-title reveal fade-up delay-1" id="dressCode">Formal elegante</p>
         <p class="dress-texto reveal fade-up delay-2">
-          Reservamos el color rojo vino para la quinceañera.
+          Reservamos el color palo de rosa para la quinceañera.
         </p>
 
         <div class="dress-palette reveal fade-up delay-3">
@@ -282,18 +297,19 @@
         </p>
       </div>
     </section>
-    <!-- FOTO FINAL -->
-<section class="section-space parallax-section reveal fade-up">
-  <div class="photo-final">
-    <img src="foto3.png" alt="Nayeli Gutiérrez">
-    <div class="final-overlay"></div>
 
-    <div class="final-text reveal fade-up delay-2">
-      <h2>Gracias por ser parte de este momento</h2>
-      <p>Te esperamos ❤️</p>
-    </div>
-  </div>
-</section>
+    <!-- FOTO FINAL -->
+    <section class="section-space parallax-section reveal fade-up">
+      <div class="photo-final">
+        <img src="foto3.png" alt="Nayeli Gutiérrez">
+        <div class="final-overlay"></div>
+
+        <div class="final-text reveal fade-up delay-2">
+          <h2>Gracias por ser parte de este momento</h2>
+          <p>Te esperamos ❤️</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="script.js"></script>

@@ -2,18 +2,19 @@ const CONFIG = {
   quinceanera: "Nayeli Gutiérrez",
   textoBienvenida:
     "Con la bendición de Dios y el amor de mi familia, queremos invitarte a celebrar este día tan especial.",
-  fechaEvento: "2026-04-11T16:00:00",
+  fechaEvento: "2026-04-11T14:45:00",
 
   mesEvento: "ABRIL",
   diaSemana: "SÁBADO",
   diaNumero: "11",
   fraseFecha: "“Este día quedará para siempre en mi corazón”",
 
-  horaMisa: "15:00 hrs",
-  lugarMisa: "Iglesia de Atocha",
+  tituloCeremonia: "Ceremonia religiosa",
+  horaMisa: "14:45 hrs",
+  lugarMisa: "Iglesia San José de Atocha",
 
-  horaLugar: "16:00 hrs",
-  nombreLugar: "Quinta / Salón de eventos",
+  horaLugar: "14:45 hrs",
+  nombreLugar: "Quinta María Eliza",
   linkMapa: "https://maps.google.com",
 
   dressCode: "Formal elegante",
@@ -21,7 +22,7 @@ const CONFIG = {
   fraseQuince:
     "“Hoy celebro no solo un cumpleaños, sino el comienzo de una nueva etapa llena de sueños, ilusiones y momentos inolvidables.”",
 
-  telefonoWhatsApp: "593900000000"
+  telefonoWhatsApp: "593983990003"
 };
 
 const $ = (id) => document.getElementById(id);
@@ -36,6 +37,7 @@ function cargarDatos() {
   $("diaNumero").textContent = CONFIG.diaNumero;
   $("fraseFecha").textContent = CONFIG.fraseFecha;
 
+  $("tituloCeremonia").textContent = CONFIG.tituloCeremonia;
   $("horaMisa").textContent = CONFIG.horaMisa;
   $("lugarMisa").textContent = CONFIG.lugarMisa;
 
@@ -59,7 +61,9 @@ function cargarInvitadoDesdeURL() {
   $("numeroPersonas").textContent =
     `${personas} ${Number(personas) === 1 ? "persona" : "personas"}`;
 
-  const mensaje = `¡Hola! Confirmo mi asistencia a los 15 de ${CONFIG.quinceanera}. Somos ${nombre} (${personas} ${Number(personas) === 1 ? "persona" : "personas"}).`;
+  const mensaje =
+    `¡Hola! Confirmo mi asistencia a los 15 de ${CONFIG.quinceanera}. ` +
+    `Somos ${nombre} (${personas} ${Number(personas) === 1 ? "persona" : "personas"}).`;
 
   $("btnConfirmar").href =
     `https://wa.me/${CONFIG.telefonoWhatsApp}?text=${encodeURIComponent(mensaje)}`;
@@ -67,9 +71,23 @@ function cargarInvitadoDesdeURL() {
 
 function abrirInvitacion() {
   const pantalla = $("pantalla-sobre");
-  pantalla.style.transform = "translateY(-110%)";
-  document.body.style.overflowY = "auto";
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  pantalla.classList.add("abriendo");
+
+  const musica = $("musicaFondo");
+  const btnMusica = $("btnMusica");
+
+  if (musica) {
+    musica.play()
+      .then(() => btnMusica.classList.add("playing"))
+      .catch(() => {});
+  }
+
+  setTimeout(() => {
+    pantalla.style.transform = "translateY(-110%)";
+    pantalla.style.opacity = "0";
+    document.body.style.overflowY = "auto";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, 700);
 }
 
 function iniciarContador() {
@@ -103,7 +121,7 @@ function iniciarContador() {
 }
 
 function activarAnimacionesScroll() {
-  const elementos = document.querySelectorAll(".reveal, .stagger-group");
+  const elementos = document.querySelectorAll(".reveal, .stagger-group, .photo-full, .photo-final");
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -141,6 +159,50 @@ function activarScrollCinematic() {
   window.addEventListener("resize", actualizarParallax);
 }
 
+function activarPetalosInteractivos() {
+  const petalos = document.querySelectorAll(".petal");
+
+  function reaccionPetalos() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const intensidad = Math.min(scrollY * 0.02, 18);
+
+    petalos.forEach((petalo, index) => {
+      const offset = ((index % 2 === 0) ? intensidad : -intensidad);
+      petalo.style.marginLeft = `${offset}px`;
+    });
+  }
+
+  reaccionPetalos();
+  window.addEventListener("scroll", reaccionPetalos, { passive: true });
+}
+
+function activarMusica() {
+  const musica = $("musicaFondo");
+  const btnMusica = $("btnMusica");
+  if (!musica || !btnMusica) return;
+
+  btnMusica.addEventListener("click", async () => {
+    if (musica.paused) {
+      try {
+        await musica.play();
+        btnMusica.classList.add("playing");
+      } catch (error) {}
+    } else {
+      musica.pause();
+      btnMusica.classList.remove("playing");
+    }
+  });
+
+  document.addEventListener("click", async () => {
+    if (musica.paused) {
+      try {
+        await musica.play();
+        btnMusica.classList.add("playing");
+      } catch (error) {}
+    }
+  }, { once: true });
+}
+
 document.body.style.overflowY = "hidden";
 $("btnAbrir").addEventListener("click", abrirInvitacion);
 
@@ -149,3 +211,5 @@ cargarInvitadoDesdeURL();
 iniciarContador();
 activarAnimacionesScroll();
 activarScrollCinematic();
+activarPetalosInteractivos();
+activarMusica();
