@@ -37,7 +37,11 @@
     <source src="musica.mp3" type="audio/mpeg">
   </audio>
 
-  <button id="btnMusica" class="music-toggle" aria-label="Activar o pausar música">
+  <audio id="sonidoSobre" preload="auto">
+    <source src="sobre-open.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="btnMusica" class="music-toggle oculto" aria-label="Activar o pausar música">
     ♪ Música
   </button>
 
@@ -105,10 +109,12 @@
 
   <main id="contenido">
     <!-- HERO PRINCIPAL -->
-    <section class="hero-section parallax-section reveal fade-up decor-top-left decor-bottom-right">
+    <section class="hero-section parallax-section reveal fade-up decor-hero-main">
       <div class="premium-card hero-card">
-        <img src="flores-esquina.png" alt="" class="flor flor-top-left">
-        <img src="flores-esquina.png" alt="" class="flor flor-bottom-right mirrored">
+        <div class="hero-top-stars">✦ ✦ ✦</div>
+        <div class="hero-soft-flower hero-soft-flower-left"></div>
+        <div class="hero-soft-flower hero-soft-flower-right"></div>
+
         <div class="butterfly-svg butterfly-card butterfly-card-a">🦋</div>
         <div class="butterfly-svg butterfly-card butterfly-card-b">🦋</div>
 
@@ -131,10 +137,10 @@
     </section>
 
     <!-- CONTADOR -->
-    <section class="section-space parallax-section reveal fade-left decor-border-soft">
+    <section class="section-space parallax-section reveal fade-left decor-counter-soft">
       <div class="premium-band">
-        <img src="flores-esquina.png" alt="" class="flores-banda flores-banda-left">
-        <img src="flores-esquina.png" alt="" class="flores-banda flores-banda-right mirrored">
+        <div class="counter-rose counter-rose-left">🌹</div>
+        <div class="counter-rose counter-rose-right">🌹</div>
 
         <h3 class="titulo-vino reveal fade-up">Faltan</h3>
 
@@ -160,10 +166,10 @@
     </section>
 
     <!-- FECHA EXACTA -->
-    <section class="section-space parallax-section reveal zoom-soft decor-top-right">
+    <section class="section-space parallax-section reveal zoom-soft decor-date-special">
       <div class="premium-card tarjeta-fecha fecha-elegante">
-        <img src="flores-esquina.png" alt="" class="flor flor-top-left">
-        <div class="butterfly-svg butterfly-card butterfly-card-c">🦋</div>
+        <div class="rose-accent rose-accent-top-left">🌹</div>
+        <div class="mini-butterfly mini-butterfly-right">🦋</div>
 
         <h3 class="titulo-script reveal fade-up">Mi cumpleaños</h3>
 
@@ -173,16 +179,16 @@
           <span id="mesEventoSimple">abril</span>
         </div>
 
-        <p class="frase-corta reveal fade-up delay-2" id="fraseFecha">
-          “Este día quedará para siempre en mi corazón”
-        </p>
+        <div class="fecha-ornamento reveal fade-up delay-2"></div>
       </div>
     </section>
 
     <!-- CEREMONIA -->
-    <section class="section-space parallax-section reveal fade-right decor-top-left decor-border-soft">
+    <section class="section-space parallax-section reveal fade-right decor-card-frame">
       <div class="premium-card premium-card-place">
-        <img src="flores-esquina.png" alt="" class="flor flor-bottom-left">
+        <div class="corner-flower corner-flower-top-left"></div>
+        <div class="mini-butterfly mini-butterfly-right">🦋</div>
+
         <h3 class="titulo-script reveal fade-up" id="tituloCeremonia">Ceremonia religiosa</h3>
         <div class="divider reveal fade-up delay-1"></div>
 
@@ -205,10 +211,10 @@
     </section>
 
     <!-- RECEPCIÓN -->
-    <section class="section-space parallax-section reveal fade-left decor-bottom-right decor-top-right">
+    <section class="section-space parallax-section reveal fade-left decor-side-dots">
       <div class="premium-card premium-card-place">
-        <img src="flores-esquina.png" alt="" class="flor flor-top-right mirrored">
-        <div class="butterfly-svg butterfly-card butterfly-card-d">🦋</div>
+        <div class="corner-line corner-line-top-right"></div>
+        <div class="mini-butterfly mini-butterfly-left">🦋</div>
 
         <h3 class="titulo-script reveal fade-up">Recepción</h3>
         <div class="divider reveal fade-up delay-1"></div>
@@ -232,8 +238,9 @@
     </section>
 
     <!-- ITINERARIO -->
-    <section class="section-space parallax-section reveal float-in decor-border-soft">
+    <section class="section-space parallax-section reveal float-in decor-timeline-soft">
       <div class="premium-band premium-band-itinerario">
+        <div class="timeline-stars">✦</div>
         <h3 class="titulo-vino reveal fade-up">Itinerario</h3>
 
         <div class="timeline">
@@ -271,7 +278,7 @@
     </section>
 
     <!-- FOTO INTERMEDIA -->
-    <section class="section-space parallax-section reveal zoom-soft decor-top-left">
+    <section class="section-space parallax-section reveal zoom-soft decor-photo-soft">
       <div class="photo-full">
         <img src="foto2.png" alt="Nayeli Gutiérrez">
         <div class="photo-overlay"></div>
@@ -283,15 +290,20 @@
     </section>
 
     <!-- CÓDIGO DE VESTIMENTA -->
-    <section class="section-space parallax-section reveal fade-right decor-bottom-right">
+    <section class="section-space parallax-section reveal fade-right decor-dress-special">
       <div class="premium-card">
-        <img src="flores-esquina.png" alt="" class="flor flor-top-left">
+        <div class="rose-accent rose-accent-top-left">🌹</div>
+        <div class="mini-butterfly mini-butterfly-right">🦋</div>
+        <div class="title-soft-emblem"></div>
+
         <h3 class="titulo-script reveal fade-up">Código de vestimenta</h3>
 
         <p class="dress-title reveal fade-up delay-1" id="dressCode">Formal elegante</p>
         <p class="dress-texto reveal fade-up delay-2">
           Reservamos el color palo de rosa para la quinceañera.
         </p>
+
+        <div class="dress-divider reveal fade-up delay-2"></div>
 
         <div class="dress-palette reveal fade-up delay-3">
           <span class="palette-dot vino"></span>
@@ -302,10 +314,17 @@
     </section>
 
     <!-- FRASE -->
-    <section class="section-space parallax-section reveal zoom-soft decor-top-right decor-border-soft">
+    <section class="section-space parallax-section reveal zoom-soft decor-quote-special">
       <div class="premium-card frase-card">
-        <div class="butterfly-svg butterfly-card butterfly-card-e">🦋</div>
+        <div class="quote-top-ornament">
+          <span></span><i>✦</i><span></span>
+        </div>
+        <div class="mini-butterfly mini-butterfly-left">🦋</div>
+        <div class="mini-butterfly mini-butterfly-right">🦋</div>
+
         <h3 class="titulo-script reveal fade-up">Mis 15 años</h3>
+
+        <div class="quote-ornament reveal fade-up delay-1"></div>
 
         <p class="frase-larga reveal fade-up delay-2" id="fraseQuince">
           “Hoy celebro no solo un cumpleaños, sino el comienzo de una nueva etapa llena de sueños, ilusiones y momentos inolvidables.”
@@ -314,10 +333,15 @@
     </section>
 
     <!-- CONFIRMACIÓN -->
-    <section class="section-space parallax-section reveal fade-up decor-bottom-right decor-top-left">
+    <section class="section-space parallax-section reveal fade-up decor-confirm-special">
       <div class="premium-card confirm-card">
-        <img src="flores-esquina.png" alt="" class="flor flor-bottom-right mirrored">
+        <div class="corner-line corner-line-top-left"></div>
+        <div class="mini-butterfly mini-butterfly-right">🦋</div>
+        <div class="rose-accent rose-accent-bottom-right">🌹</div>
+
         <h3 class="titulo-script reveal fade-up">Confirmar asistencia</h3>
+
+        <div class="confirm-ornament reveal fade-up delay-1"></div>
 
         <p class="confirmacion-texto reveal fade-up delay-1">
           Por favor, confirma tu asistencia para compartir este momento tan especial con nosotros.
@@ -334,7 +358,7 @@
     </section>
 
     <!-- FOTO FINAL -->
-    <section class="section-space parallax-section reveal fade-up decor-border-soft">
+    <section class="section-space parallax-section reveal fade-up decor-final-soft">
       <div class="photo-final">
         <img src="foto3.png" alt="Nayeli Gutiérrez">
         <div class="final-overlay"></div>

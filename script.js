@@ -6,7 +6,6 @@ const CONFIG = {
 
   mesEvento: "abril",
   diaNumero: "11",
-  fraseFecha: "“Este día quedará para siempre en mi corazón”",
 
   introFrase: "Hay momentos que se guardan para siempre en el corazón",
 
@@ -41,7 +40,6 @@ function cargarDatos() {
 
   $("diaNumeroSimple").textContent = CONFIG.diaNumero;
   $("mesEventoSimple").textContent = CONFIG.mesEvento;
-  $("fraseFecha").textContent = CONFIG.fraseFecha;
 
   $("tituloCeremonia").textContent = CONFIG.tituloCeremonia;
   $("horaMisa").textContent = CONFIG.horaMisa;
@@ -82,17 +80,29 @@ function cargarInvitadoDesdeURL() {
 
 function reproducirMusicaSiSePuede() {
   const musica = $("musicaFondo");
-  const btnMusica = $("btnMusica");
-  if (!musica) return;
+  const btn = $("btnMusica");
 
-  musica.play()
-    .then(() => btnMusica.classList.add("playing"))
-    .catch(() => {});
+  if (!musica || !btn) return;
+
+  musica.play().then(() => {
+    btn.classList.remove("oculto");
+    btn.classList.add("visible");
+    btn.classList.add("playing");
+  }).catch(() => {});
+}
+
+function reproducirSonidoSobre() {
+  const sonido = $("sonidoSobre");
+  if (!sonido) return;
+
+  sonido.currentTime = 0;
+  sonido.play().catch(() => {});
 }
 
 function activarMusica() {
   const musica = $("musicaFondo");
   const btnMusica = $("btnMusica");
+
   if (!musica || !btnMusica) return;
 
   btnMusica.addEventListener("click", async () => {
@@ -106,23 +116,12 @@ function activarMusica() {
       btnMusica.classList.remove("playing");
     }
   });
-
-  document.addEventListener("click", async () => {
-    if (musica.paused) {
-      try {
-        await musica.play();
-        btnMusica.classList.add("playing");
-      } catch (error) {}
-    }
-  }, { once: true });
 }
 
 function cerrarIntro() {
   const intro = $("introCinematic");
   if (!intro || intro.classList.contains("hidden")) return;
-
   intro.classList.add("hidden");
-  reproducirMusicaSiSePuede();
 }
 
 function iniciarIntroCinematic() {
@@ -138,6 +137,7 @@ function abrirInvitacion() {
   const pantalla = $("pantalla-sobre");
   pantalla.classList.add("abriendo");
 
+  reproducirSonidoSobre();
   reproducirMusicaSiSePuede();
 
   setTimeout(() => {
